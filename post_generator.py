@@ -39,7 +39,7 @@ def get_prompt(length, language, tag):
         prompt += "4) Use the writing style as per the following examples."
 
     for i, post in enumerate(examples):
-        post_text = post['text']
+        post_text = post['text'].encode('utf-8', 'ignore').decode('utf-8')
         prompt += f'\n\n Example {i+1}: \n\n {post_text}'
 
         if i == 1: # Use max two samples
